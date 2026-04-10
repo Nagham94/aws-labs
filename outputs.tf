@@ -8,3 +8,8 @@ output "vpc_id" {
   value = module.vpc.vpc_id
 }
 
+output "ec2_pub_ip" {
+  description = "ec2 public ip"
+  value = module.ec2-ebs.ec2_pub_ip
+}
+

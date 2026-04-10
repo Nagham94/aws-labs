@@ -27,3 +27,9 @@ variable "private_subnet_cidr" {
   type        = string
   default     = "192.168.2.0/24"
 }
+
+variable "ami_id" {
+  description = "ami id for the ec2 instance"
+  type        = string
+  default     = "ami-0ea87431b78a82070"
+}
