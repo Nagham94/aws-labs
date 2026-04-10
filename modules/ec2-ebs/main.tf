@@ -51,3 +51,18 @@ EOF
     Name = "${var.project_name}_ec2"
   }
 }
+
+resource "aws_ebs_volume" "data" {
+  availability_zone = aws_instance.web.availability_zone
+  size              = 8
+
+  tags = {
+    Name = "${var.project_name}_ebs"
+  }
+}
+
+resource "aws_volume_attachment" "attach" {
+  device_name = "/dev/xvdf"
+  volume_id   = aws_ebs_volume.data.id
+  instance_id = aws_instance.web.id
+}
