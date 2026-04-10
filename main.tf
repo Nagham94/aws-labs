@@ -60,5 +60,13 @@ module "launch_template" {
   project_name         = var.project_name
   ami_id               = var.ami_id
   key_name             = module.ec2-ebs.key_name
-  security_group_id    =module.ec2-ebs.security_group_id
+  security_group_id    = module.ec2-ebs.security_group_id
+}
+
+module "asg" {
+  source               = "./modules/asg"
+  project_name         = var.project_name
+  public_subnet_ids    = module.vpc.public_subnet_ids
+  target_group_arn     = module.alb.target_group_arn
+  launch_template_id   = module.launch_template.launch_template_id
 }
