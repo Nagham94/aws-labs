@@ -17,9 +17,15 @@ variable "vpc_cidr" {
 }
 
 variable "public_subnet_cidr" {
-  description = "Public subnet CIDR"
+  description = "Public subnet CIDR (AZ 1)"
   type        = string
   default     = "192.168.1.0/24"
+}
+
+variable "public_subnet_cidr_2" {
+  description = "Public subnet CIDR (AZ 2)"
+  type        = string
+  default     = "192.168.3.0/24"
 }
 
 variable "private_subnet_cidr" {
