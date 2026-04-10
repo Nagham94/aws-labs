@@ -54,3 +54,11 @@ resource "aws_security_group" "alb_sg" {
     Name = "${var.project_name}-alb-sg"
   }
 }
+
+module "launch_template" {
+  source               = "./modules/launch_template"
+  project_name         = var.project_name
+  ami_id               = var.ami_id
+  key_name             = module.ec2-ebs.key_name
+  security_group_id    =module.ec2-ebs.security_group_id
+}
