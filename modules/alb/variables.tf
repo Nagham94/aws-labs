@@ -21,3 +21,7 @@ variable "instance_id" {
 variable "alb_sg_id" {
   type = string
 }
+
+variable "asg_name" {
+  type = string
+}

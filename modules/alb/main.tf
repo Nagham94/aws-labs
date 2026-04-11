@@ -40,3 +40,8 @@ resource "aws_lb_target_group_attachment" "ec2" {
   target_id        = var.instance_id
   port             = 80
 }
+
+resource "aws_autoscaling_attachment" "asg_attachment" {
+  autoscaling_group_name = var.asg_name
+  lb_target_group_arn    = aws_lb_target_group.tg.arn
+}

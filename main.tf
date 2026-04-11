@@ -20,6 +20,7 @@ module "alb" {
   public_subnet_ids    = module.vpc.public_subnet_ids
   instance_id          = module.ec2-ebs.instance_id
   alb_sg_id            = aws_security_group.alb_sg.id
+  asg_name             = module.asg.asg_name
 }
 
 module "ec2-ebs" {
