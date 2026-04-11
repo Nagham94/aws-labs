@@ -78,3 +78,8 @@ module "rds" {
   public_subnet_id     = module.vpc.public_subnet_id
   public_subnet_id_2   = module.vpc.public_subnet_id_2
 }
+
+module "s3" {
+  source               = "./modules/s3"
+  project_name         = var.project_name
+}
