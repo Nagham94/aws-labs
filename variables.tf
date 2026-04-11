@@ -7,7 +7,7 @@ variable "aws_region" {
 variable "project_name" {
   description = "Project name used for naming resources"
   type        = string
-  default     = "Nagham"
+  default     = "nagham"
 }
 
 variable "vpc_cidr" {

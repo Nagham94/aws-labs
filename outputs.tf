@@ -13,3 +13,7 @@ output "ec2_pub_ip" {
   value = module.ec2-ebs.ec2_pub_ip
 }
 
+output "rds_endpoint" {
+  value = module.rds.rds_endpoint
+}
+
