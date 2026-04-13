@@ -93,3 +93,28 @@ EOF
     Name = "${var.project_name}-ECS-Instance"
   }
 }
+
+resource "aws_ecs_task_definition" "task" {
+  family                   = "nginx-task"
+  network_mode             = "bridge"
+  requires_compatibilities = ["EC2"]
+  cpu                      = "256"
+  memory                   = "512"
+
+  container_definitions = jsonencode([
+    {
+      name  = "${var.project_name}-nginx"
+      image = "nginx"
+      cpu   = 256
+      memory = 512
+      essential = true
+
+      portMappings = [
+        {
+          containerPort = 80
+          hostPort      = 80
+        }
+      ]
+    }
+  ])
+}
