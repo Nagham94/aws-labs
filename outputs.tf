@@ -20,3 +20,11 @@ output "rds_endpoint" {
 output "s3_website_url" {
   value = module.s3.website_url
 }
+
+output "ecs_instance_public_ip" {
+  value = module.ecs.ecs_instance_public_ip
+}
+
+output "ecs_cluster_name" {
+  value = module.ecs.cluster_name
+}

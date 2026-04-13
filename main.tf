@@ -84,3 +84,11 @@ module "s3" {
   source               = "./modules/s3"
   project_name         = var.project_name
 }
+
+module "ecs" {
+  source               = "./modules/ecs"
+  project_name         = var.project_name
+  vpc_id               = module.vpc.vpc_id
+  key_name             = module.ec2-ebs.key_name
+  public_subnet_id     = module.vpc.public_subnet_id
+}
